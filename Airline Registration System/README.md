@@ -1,0 +1,2 @@
+To make an airline reservation system in c++
+This project will allow a user to book a flight to a particular country and he/she will receive the ticket and filling in all the important details different concepts of c++ will be used in making in this project.
