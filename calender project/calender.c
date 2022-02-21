@@ -69,11 +69,10 @@ void ClearConsoleToColors(int ForgC, int BackC)
      if(GetConsoleScreenBufferInfo(hStdOut, &csbi))
      {
           //This fills the buffer with a given character (in this case 32=space).
+        
           FillConsoleOutputCharacter(hStdOut, (TCHAR) 32, csbi.dwSize.X * csbi.dwSize.Y, coord, &count);
-
           FillConsoleOutputAttribute(hStdOut, csbi.wAttributes, csbi.dwSize.X * csbi.dwSize.Y, coord, &count );
-          //This will set our cursor position for the next print statement.
-          SetConsoleCursorPosition(hStdOut, coord);
+          SetConsoleCursorPosition(hStdOut, coord);           //This will set our cursor position for the next print statement.
      }
      return;
 }
