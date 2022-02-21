@@ -28,8 +28,10 @@ void SetColor(int ForgC)
 {
    WORD wColor;
    //We will need this handle to get the current background attribute
+   
    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
    CONSOLE_SCREEN_BUFFER_INFO csbi;
+   
    // We use csbi for the wAttributes word.
    if(GetConsoleScreenBufferInfo(hStdOut, &csbi))
    {
@@ -48,15 +50,21 @@ void ClearConsoleToColors(int ForgC, int BackC)
 {
      WORD wColor = ((BackC & 0x0F) << 4) + (ForgC & 0x0F);
      //Get the handle to the current output buffer...
-     HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-     //This is used to reset the carat/cursor to the top left.
-     COORD coord = {0, 0};
-     /* A return value... indicating how many chars were written not used but we need to capture this since it will be written anyway (passing NULL causes an access violation). */
-     DWORD count;
-
-     /* This is a structure containing all of the console info it is used here to find the size of the console. */
+   
+   HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+   
+   //This is used to reset the carat/cursor to the top left.
+   
+   COORD coord = {0, 0};
+   
+   /* A return value... indicating how many chars were written not used but we need to capture this since it will be written anyway (passing NULL causes an access violation). */
+   
+   DWORD count;
+  
+  /* This is a structure containing all of the console info it is used here to find the size of the console. */
      CONSOLE_SCREEN_BUFFER_INFO csbi;
-     //Here we will set the current color
+  
+   //Here we will set the current color
      SetConsoleTextAttribute(hStdOut, wColor);
      if(GetConsoleScreenBufferInfo(hStdOut, &csbi))
      {
@@ -77,7 +85,8 @@ void ClearConsoleToColors(int ForgC, int BackC)
     return;
  }
  // checks whether the year passed is leap year or not
- int check_leapYear(int year){
+ 
+int check_leapYear(int year){
    if(year % 400 == 0 || (year % 100 !=0 % year % 4 == 0))
      return 1;
    return 0;
