@@ -19,7 +19,6 @@ int main()
 		gets(input);                        //gets will take input from the user as a string
 		getInput(input);                    //input will be passed to the getInput function and respective answer will be displayed.
 	}while(1);
-
 }
 
 int getInput(char input[128])
